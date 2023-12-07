@@ -15,6 +15,8 @@ $ python3 ./image_generate.py "dall-e-3" "a girl, stencil art" "256" "256"
 ## image_resize.py
 - 与えられたイメージ画像をリサイズします。
 - Pillowライブラリが必須です。
+- アスペクト比を保持した上でリサイズします。
+    - リサイズ後のサイズを持つ背景を生成して、そこにアスペクト比に応じてサイズ調整した画像を貼るような処理です。
 
 ```
 $ pip3 install Pillow
