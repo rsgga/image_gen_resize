@@ -25,6 +25,23 @@ $ pip3 install Pillow
 $ python3 ./image_resize.py "./${generated_file_name}" "./${resized_file_name}" "1164" "498"
 ```
 
+## imgae_resolution.py
+- 与えられた画像の解像度を自動調整します
+- 現状、決め内の値が多いので、細かい調整はできません。
+
+```
+$ pip3 install Pillow
+$ pip3 install diffusers
+$ pip3 install torch
+$ pip3 install transformers
+$ pip3 install accelerate
+
+# python3 ./image_resolution.py input_path output_path
+$ python3 ./image_resolution.py "./${generated_file_name}" "./${resized_file_name}"
+```
+
+
+
 ## sample.sh
 image_generate.pyとimage_resize.pyを組み合わせて、
 画像生成→画像リサイズを行うサンプルスクリプトです。
