@@ -24,18 +24,10 @@ def validate_model_and_size(model, size):
         raise ValueError(f"Size '{size}' is not available for model '{model}'.")
 
 
-def lambda_handler(event, context):
+def image_generate(model, prompt, width, height, quality):
     client = OpenAI()
 
-    body = json.loads(event['body'])
-
-    _width   = body['width']
-    _height  = body['height']
-
-    model   = body['model']
-    prompt  = body['prompt']
-    size    = generate_size_str(_width, _height)
-    quality = body['quality']
+    size = generate_size_str(width, height)
 
     response = client.images.generate(
       model=model,
@@ -47,6 +39,18 @@ def lambda_handler(event, context):
 
     image_url = response.data[0].url
     print(image_url)
+
+
+def lambda_handler(event, context):
+    body = json.loads(event['body'])
+
+    model   = body['model']
+    prompt  = body['prompt']
+    width   = body['width']
+    height  = body['height']
+    quality = body['quality']
+
+    image_generate(model, prompt, width, height, quality)
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
