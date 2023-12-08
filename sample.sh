@@ -2,7 +2,8 @@
 
 set -eu
 
-source openai_apikey.sh
+# OpenAI API Key
+export OPENAI_API_KEY=""
 
 curdir="$(cd $(dirname $0); pwd)"
 image_dest_dirpath="${curdir}/images"
