@@ -7,6 +7,8 @@
 - OpenAIのAPIキーが必須です。
 
 ```
+$ pip3 install openai
+
 # python3 ./image_generate.py  model prompt width height
 $ python3 ./image_generate.py "dall-e-2" "a girl, stencil art" "256" "256"
 $ python3 ./image_generate.py "dall-e-3" "a girl, stencil art" "256" "256"
@@ -40,9 +42,15 @@ $ pip3 install accelerate
 $ python3 ./image_resolution.py "./${generated_file_name}" "./${resized_file_name}"
 ```
 
+## prompt_translate.py
+- 引数として渡されたテキストを、任意の言語に翻訳します。
+- 翻訳元と翻訳先の言語は、英語で記述することを想定しています。
 
+```
+$ pip3 install openai
+$ python3 ./prompt_translate.py "『カラフルでキュートなトゥーン猫の世界へようこそ！』 猫好きのための特別な一枚 ここに描かれているのは、まるでアニメから飛び出してきたかのような、鮮やかな色彩と楽しい表情を持つトゥーン猫。この猫はただのキャラクターではありません。それは、冒険心溢れる物語の主人公、いつも私たちを笑顔にしてくれる、愛らしい存在です。" "Japanese" "English"
+```
 
 ## sample.sh
-image_generate.pyとimage_resize.pyを組み合わせて、
-画像生成→画像リサイズを行うサンプルスクリプトです。
-
+存在するpythonスクリプトを組み合わせて、
+プロンプトから画像生成→画像リサイズを行うためのサンプルスクリプトです。
