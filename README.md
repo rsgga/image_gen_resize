@@ -1,35 +1,35 @@
-# 画像生成、および、リサイズ用スクリプト
-- pythonスクリプトは、AWS Lambdaを意識した作りにしてみました。
+# Image Generation and Resizing Script
+- This Python script is designed with AWS Lambda in mind.
 
 ## image_generate.py
-- DALL-Eを使用して、画像生成します。
-- 出力は生成した画像のURLです。
-- OpenAIのAPIキーが必須です。
+- Generates images using DALL-E.
+- The output is the URL of the generated image.
+- An OpenAI API key is required.
 
 ```
 $ pip3 install openai
 
-# python3 ./image_generate.py  model prompt width height
+# python3 ./image_generate.py model prompt width height
 $ python3 ./image_generate.py "dall-e-2" "a girl, stencil art" "256" "256"
 $ python3 ./image_generate.py "dall-e-3" "a girl, stencil art" "256" "256"
 ```
 
 ## image_resize.py
-- 与えられたイメージ画像をリサイズします。
-- Pillowライブラリが必須です。
-- アスペクト比を保持した上でリサイズします。
-    - リサイズ後のサイズを持つ背景を生成して、そこにアスペクト比に応じてサイズ調整した画像を貼るような処理です。
+- Resizes a given image.
+- The Pillow library is required.
+- Resizes while maintaining the aspect ratio.
+    - This process involves creating a background with the size of the resized image and pasting the aspect ratio-adjusted image onto it.
 
 ```
 $ pip3 install Pillow
 
-# python3 ./image_resize.py input_path output_path  width height
+# python3 ./image_resize.py input_path output_path width height
 $ python3 ./image_resize.py "./${generated_file_name}" "./${resized_file_name}" "1164" "498"
 ```
 
-## imgae_resolution.py
-- 与えられた画像の解像度を自動調整します
-- 現状、決め内の値が多いので、細かい調整はできません。
+## image_resolution.py
+- Automatically adjusts the resolution of a given image.
+- Currently, many values are preset, so fine adjustments are not possible.
 
 ```
 $ pip3 install Pillow
@@ -42,15 +42,16 @@ $ pip3 install accelerate
 $ python3 ./image_resolution.py "./${generated_file_name}" "./${resized_file_name}"
 ```
 
+(Note: This translation covers the full content as per the snippet shown. If there is additional content, please let me know to continue the translation.)
+
 ## prompt_translate.py
-- 引数として渡されたテキストを、任意の言語に翻訳します。
-- 翻訳元と翻訳先の言語は、英語で記述することを想定しています。
+- Translates text passed as an argument into any language.
+- The source and target languages are assumed to be written in English.
 
 ```
 $ pip3 install openai
-$ python3 ./prompt_translate.py "『カラフルでキュートなトゥーン猫の世界へようこそ！』 猫好きのための特別な一枚 ここに描かれているのは、まるでアニメから飛び出してきたかのような、鮮やかな色彩と楽しい表情を持つトゥーン猫。この猫はただのキャラクターではありません。それは、冒険心溢れる物語の主人公、いつも私たちを笑顔にしてくれる、愛らしい存在です。" "Japanese" "English"
+$ python3 ./prompt_translate.py "Welcome to the colorful and cute world of Toon Cats! A special piece for cat lovers. What's depicted here is a Toon Cat with vivid colors and a playful expression, as if it's jumped right out of an animation. This cat is not just a character. It's the protagonist of an adventure-filled story, always bringing a smile to our faces, a lovely presence." "Japanese" "English"
 ```
 
 ## sample.sh
-存在するpythonスクリプトを組み合わせて、
-プロンプトから画像生成→画像リサイズを行うためのサンプルスクリプトです。
+A sample script that combines existing Python scripts to generate an image from a prompt and then resize it.
