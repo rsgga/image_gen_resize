@@ -31,7 +31,7 @@ resize_height=1728
 contents_text='『カラフルでキュートなトゥーン猫の世界へようこそ！』 猫好きのための特別な一枚 ここに描かれているのは、まるでアニメから飛び出してきたかのような、鮮やかな色彩と楽しい表情を持つトゥーン猫。この猫はただのキャラクターではありません。それは、冒険心溢れる物語の主人公、いつも私たちを笑顔にしてくれる、愛らしい存在です。'
 
 echo 'Translating...'
-image_generate_propmt="$(python3 ./prompt_translate.py "${contents_text}" "Japanese" "English")"
+image_generate_propmt="$(python3 ./prompt_translate.py "gpt-4-1106-preview" "${contents_text}" "Japanese" "English")"
 echo "${image_generate_propmt}"
 
 # Generate PNG image.
