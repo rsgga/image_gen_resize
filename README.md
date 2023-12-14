@@ -48,6 +48,18 @@ $ python3 ./image_resolution.py "./${generated_file_name}" "./${resized_file_nam
 
 (Note: This translation covers the full content as per the snippet shown. If there is additional content, please let me know to continue the translation.)
 
+## image_background_remove.py
+`# python3 ./image_resolution.py {input_path} {output_path}`
+- Remove (make transparent) the background using the rembg library.
+- The contents of rembg's README.md are used verbatim.
+
+### Example
+```
+$ pip3 install rembg
+
+$ python3 ./image_background_remove.py "./${original_image_path}" "./${background_removed_image_path}"
+```
+
 ## prompt_translate.py
 `# python3 ./prompt_translate.py {model} {source_text} {source_language} {target_language}`
 - Translates text passed as an argument into any language.
