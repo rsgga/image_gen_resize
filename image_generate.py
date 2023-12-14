@@ -5,9 +5,10 @@ from openai import OpenAI
 def generate_size_str(width, height):
     return f'{width}x{height}'
 
+# ref. https://platform.openai.com/docs/api-reference/images/create#images-create-size
 def allow_size():
     return {
-        "dall-e-3": ["1024x1024", "1024x1792"],
+        "dall-e-3": ["1024x1024", "1024x1792", "1792x1024"],
         "dall-e-2": ["256x256", "512x512", "1024x1024"]
     }
 
