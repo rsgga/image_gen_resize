@@ -1,3 +1,4 @@
+import os
 import sys
 import openai
 import json
@@ -45,7 +46,7 @@ def lambda_handler(event, context):
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: python prompt_translate_japanese_to_english.py <openai_model> <prompt> <source_language_in_english> <target_language_in_english>")
+        print(f"Usage: python {os.path.basename(__file__)} <openai_model> <prompt> <source_language_in_english> <target_language_in_english>")
         sys.exit(1)
 
     openai_model = sys.argv[1]

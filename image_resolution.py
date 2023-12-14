@@ -1,3 +1,4 @@
+import os
 import sys
 import json
 from PIL import Image
@@ -61,7 +62,7 @@ def lambda_handler(event, context):
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: python resolution_image.py <input_path> <output_path> <prompt>")
+        print(f"Usage: python {os.path.basename(__file__)} <input_path> <output_path> <prompt>")
         sys.exit(1)
 
     input_path  = sys.argv[1]

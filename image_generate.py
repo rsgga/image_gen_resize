@@ -1,3 +1,4 @@
+import os
 import sys
 import json
 from openai import OpenAI
@@ -55,7 +56,7 @@ def lambda_handler(event, context):
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: python image_generate.py <model> <prompt> <width> <height>")
+        print(f"Usage: python {os.path.basename(__file__)} <model> <prompt> <width> <height>")
         sys.exit(1)
 
     model  = sys.argv[1]

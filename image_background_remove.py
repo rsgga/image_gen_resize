@@ -1,3 +1,4 @@
+import os
 import sys
 import json
 from rembg import remove
@@ -19,7 +20,7 @@ def lambda_handler(event, context):
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("Usage: python image_background_remove.py <input_path> <output_path>")
+        print(f"Usage: python {os.path.basename(__file__)} <input_path> <output_path>")
         sys.exit(1)
 
     input_path  = sys.argv[1]

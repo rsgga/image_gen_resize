@@ -1,3 +1,4 @@
+import os
 import sys
 import json
 from PIL import Image
@@ -61,7 +62,7 @@ def lambda_handler(event, context):
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: python resize_image.py <input_path> <output_path> <new_width> <new_height>")
+        print(f"Usage: python {os.path.basename(__file__)} <input_path> <output_path> <new_width> <new_height>")
         sys.exit(1)
 
     input_path  = sys.argv[1]
